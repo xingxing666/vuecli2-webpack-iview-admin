@@ -47,144 +47,61 @@ export default [{
 	}]
 }, {
 	path: '',
-	name: 'doc',
+	name: 'website',
 	meta: {
-		title: '文档',
-		href: 'https://lison16.github.io/iview-admin-doc/#/',
+		title: '游戏官网',
+		href: 'https://zgbw.jedi-games.com/',
 		icon: 'ios-book'
 	}
 }, {
-	path: '/join',
-	name: 'join',
-	component: Main,
+	path: '/news',
+	name: 'news',
 	meta: {
-		hideInBread: false
+		icon: 'logo-buffer',
+		title: '网站文章'
 	},
+	component: Main,
 	children: [{
-		path: 'join_page',
-		name: 'join_page',
+		path: 'news_list_page',
+		name: 'news_list_page',
 		meta: {
-			icon: '_qq',
-			title: 'QQ群'
+			icon: 'ios-infinite',
+			title: '文章列表'
+		},
+		component: () =>
+			import('@/view/single-page/home')
+	}, {
+		path: 'news_add',
+		name: 'news_add',
+		meta: {
+			icon: 'md-add',
+			title: '新增文章'
 		},
 		component: () =>
 			import('@/view/single-page/home')
 	}]
 }, {
-	path: '/components',
-	name: 'components',
+	path: '/401',
+	name: 'error_401',
 	meta: {
-		icon: 'logo-buffer',
-		title: '组件'
+		hideInMenu: true
 	},
-	component: Main,
-	children: [{
-		path: 'tree_select_page',
-		name: 'tree_select_page',
-		meta: {
-			icon: 'md-arrow-dropdown-circle',
-			title: '树状下拉选择器'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}, {
-		path: 'count_to_page',
-		name: 'count_to_page',
-		meta: {
-			icon: 'md-trending-up',
-			title: '数字渐变'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}, {
-		path: 'drag_list_page',
-		name: 'drag_list_page',
-		meta: {
-			icon: 'ios-infinite',
-			title: '拖拽列表'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}, {
-		path: 'drag_drawer_page',
-		name: 'drag_drawer_page',
-		meta: {
-			icon: 'md-list',
-			title: '可拖拽抽屉'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}, {
-		path: 'org_tree_page',
-		name: 'org_tree_page',
-		meta: {
-			icon: 'ios-people',
-			title: '组织结构树'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}, {
-		path: 'tree_table_page',
-		name: 'tree_table_page',
-		meta: {
-			icon: 'md-git-branch',
-			title: '树状表格'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}, {
-		path: 'cropper_page',
-		name: 'cropper_page',
-		meta: {
-			icon: 'md-crop',
-			title: '图片裁剪'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}, {
-		path: 'tables_page',
-		name: 'tables_page',
-		meta: {
-			icon: 'md-grid',
-			title: '多功能表格'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}, {
-		path: 'split_pane_page',
-		name: 'split_pane_page',
-		meta: {
-			icon: 'md-pause',
-			title: '分割窗口'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}, {
-		path: 'markdown_page',
-		name: 'markdown_page',
-		meta: {
-			icon: 'logo-markdown',
-			title: 'Markdown编辑器'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}, {
-		path: 'editor_page',
-		name: 'editor_page',
-		meta: {
-			icon: 'ios-create',
-			title: '富文本编辑器'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}, {
-		path: 'icons_page',
-		name: 'icons_page',
-		meta: {
-			icon: '_bear',
-			title: '自定义图标'
-		},
-		component: () =>
-			import('@/view/single-page/home')
-	}]
+	component: () =>
+		import('@/view/error-page/401.vue')
+}, {
+	path: '/500',
+	name: 'error_500',
+	meta: {
+		hideInMenu: true
+	},
+	component: () =>
+		import('@/view/error-page/500.vue')
+}, {
+	path: '*',
+	name: 'error_404',
+	meta: {
+		hideInMenu: true
+	},
+	component: () =>
+		import('@/view/error-page/404.vue')
 }]
